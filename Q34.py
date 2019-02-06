@@ -12,4 +12,6 @@ def solve( string, l,r):
 
 def swap(string,i,j):
 	sb = string
-
+	sb[i] = string[j]
+	sb[j] = string[i]
+	return sb
