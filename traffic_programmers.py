@@ -2,10 +2,10 @@ def solution(lines):
     answer = 0
     total_times = []
     for i in range(len(lines)):
-        start_time, end_time = get_times(lines[i])
+        start_time, end_time = get_times_to_second_24hour(lines[i])
         total_times.append((start_time, end_time, i))
 
-    for i in range(len(total_times)):
+    for i in range(len(total_times)):#start_time 과 end_time 기준으로 서버증설
         count = 1
         end_time = total_times[i][1]
         for j in range(len(total_times)):
@@ -25,7 +25,7 @@ def solution(lines):
     return answer
 
 
-def get_times(log):
+def get_times_to_second_24hour(log):#24시간 기준으로 시간을 초로 환산
     temp = log.split(" ")
     end_time = temp[1].split(':')
     end_time = int(end_time[0]) * 3600000 + int(end_time[1]) * 60000 + int(end_time[2].replace('.', ''))
