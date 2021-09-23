@@ -1,0 +1,8 @@
+-- 1
+SELECT DATETIME from ANIMAL_INS order by DATETIME desc limit 1
+-- 2
+SELECT DATETIME From ANIMAL_INS order by DATETIME asc limit 1
+-- 3
+SELECT COUNT(*) FROM ANIMAL_INS
+-- 4
+SELECT COUNT(distinct NAME) as cnt from ANIMAL_INS where NOT NAME IS NULL
