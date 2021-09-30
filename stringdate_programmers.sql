@@ -1,0 +1,30 @@
+-- 1
+SELECT ANIMAL_ID,NAME,SEX_UPON_INTAKE from ANIMAL_INS where NAME = 'Lucy' or NAME = 'Ella' or NAME = 'Pickle' or NAME = 'Rogan' or NAME = 'Sabrina' or NAME = 'Mitty' order by ANIMAL_ID
+-- 2
+SELECT ANIMAL_ID,NAME FROM ANIMAL_INS WHERE NAME LIKE '%EL%' AND ANIMAL_TYPE = 'Dog'
+ ORDER BY NAME
+ -- 3
+ SELECT 
+    ANIMAL_ID, 
+    NAME, 
+    CASE  
+        WHEN SEX_UPON_INTAKE LIKE "%Neutered%" OR SEX_UPON_INTAKE LIKE "%Spayed%" 
+            THEN "O" 
+        ELSE 
+            'X' 
+    END AS "중성화" 
+FROM     
+    ANIMAL_INS
+-- 4
+SELECT A.ANIMAL_ID, A.NAME
+FROM ANIMAL_INS A, ANIMAL_OUTS B
+WHERE A.ANIMAL_ID = B.ANIMAL_ID
+ORDER BY B.DATETIME-A.DATETIME DESC
+LIMIT 2
+-- 5
+SELECT 
+    ANIMAL_ID, 
+    NAME, 
+    DATE_FORMAT(DATETIME, '%Y-%m-%d') AS 날짜 
+FROM 
+    ANIMAL_INS
